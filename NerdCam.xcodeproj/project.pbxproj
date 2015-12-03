@@ -19,6 +19,7 @@
 		8491D2CE1C10BBF000873E21 /* kennyg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8491D2CD1C10BBF000873E21 /* kennyg.png */; };
 		8491D2D01C10C60700873E21 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491D2CF1C10C60700873E21 /* Session.swift */; };
 		84BA56271C10D6BE008110C7 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA56261C10D6BE008110C7 /* Util.swift */; };
+		C33B2A841C10EE3200A3EF32 /* MotionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33B2A831C10EE3200A3EF32 /* MotionHandler.swift */; };
 		D5C1A820B85910A281EF4359 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC13F5736EF88143725520A /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		84BA56261C10D6BE008110C7 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		8CF300E5C221E47527CD85F6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9EC13F5736EF88143725520A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C33B2A831C10EE3200A3EF32 /* MotionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionHandler.swift; sourceTree = "<group>"; };
 		D2AE228CCC36C12BCE241C6F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				8491D2CF1C10C60700873E21 /* Session.swift */,
 				84BA56261C10D6BE008110C7 /* Util.swift */,
 				3FB1895019D1F403002810E3 /* ViewController.swift */,
+				C33B2A831C10EE3200A3EF32 /* MotionHandler.swift */,
 				3FB1895219D1F403002810E3 /* Main.storyboard */,
 				3FB1895519D1F403002810E3 /* Images.xcassets */,
 				3FB1895719D1F403002810E3 /* LaunchScreen.xib */,
@@ -313,6 +316,7 @@
 				3FB1894F19D1F403002810E3 /* AppDelegate.swift in Sources */,
 				844AF3B31C10EA2200CB12DE /* KennyHatEyes.swift in Sources */,
 				8491D2D01C10C60700873E21 /* Session.swift in Sources */,
+				C33B2A841C10EE3200A3EF32 /* MotionHandler.swift in Sources */,
 				84BA56271C10D6BE008110C7 /* Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

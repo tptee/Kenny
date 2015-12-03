@@ -2,7 +2,8 @@ import AVFoundation
 import UIKit
 import Cartography
 
-class ViewController: UIViewController {
+
+class ViewController: UIViewController, MotionHandlerDelegate {
     let kennyLayer = CALayer(
         contents: UIImage(named: "kennyg.png")!.CGImage,
         contentsGravity: kCAGravityResizeAspect
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
     var 🎷 = false
     var captureSession: AVCaptureSession?
     var previewLayer: AVCaptureVideoPreviewLayer!
+    var motionData: MotionHandler?
 
     func addPreviewLayerForSession(session: AVCaptureSession) {
         let layer = AVCaptureVideoPreviewLayer(session: session)
@@ -46,6 +48,12 @@ class ViewController: UIViewController {
 
         warningLabel.hidden = true
     }
+    
+    func didReceiveSteps(numberOfSteps: Int) {
+        print("Walking!")
+        print(numberOfSteps)
+    }
+
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -57,7 +65,11 @@ class ViewController: UIViewController {
             label.right == view.right
             label.height == 60
         }
+        
+        self.motionData = MotionHandler(delegate: self)
     }
+    
+    
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
