@@ -4,12 +4,10 @@ import UIKit
 class ViewController: UIViewController {
     var captureSession: AVCaptureSession?
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var kennyLayer: CALayer = {
-        let kenny = CALayer()
-        kenny.contents = UIImage(named: "kennyg.png")!.CGImage
-        kenny.contentsGravity = kCAGravityResizeAspect
-        return kenny
-    }()
+    let kennyLayer = CALayer(
+        contents: UIImage(named: "kennyg.png")!.CGImage,
+        contentsGravity: kCAGravityResizeAspect
+    )
 
     func addPreviewLayerForSession(session: AVCaptureSession) {
         let layer = AVCaptureVideoPreviewLayer(session: session)
