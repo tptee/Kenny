@@ -50,7 +50,12 @@ class ViewController: UIViewController, MotionHandlerDelegate {
     }
     
     func didReceiveSteps(numberOfSteps: Int) {
-        print("Walking!")
+        if numberOfSteps >= 100 {
+            🎷 = false
+            pedoMeter.stopPedometerUpdates()
+            return
+        }
+        kennyLayer.opacity = 1.0 - (Float(numberOfSteps) / 100.0)
         print(numberOfSteps)
     }
 
@@ -68,8 +73,6 @@ class ViewController: UIViewController, MotionHandlerDelegate {
         
         self.motionData = MotionHandler(delegate: self)
     }
-    
-    
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -141,6 +144,7 @@ extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
         let scaledFaceRect = CGRectInset(faceRect, -30, -30)
 
         dispatch_async(dispatch_get_main_queue()) { [weak self] in
+            // TODO start updates
             self?.warningLabel.hidden = false
             self?.kennyLayer.hidden = false
             self?.kennyLayer.frame = scaledFaceRect
