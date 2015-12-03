@@ -15,7 +15,10 @@
 		3FB1896519D1F403002810E3 /* NerdCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1896419D1F403002810E3 /* NerdCamTests.swift */; };
 		8491D2CC1C10ACD200873E21 /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 8491D2CB1C10ACD200873E21 /* hat.png */; };
 		8491D2CE1C10BBF000873E21 /* kennyg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8491D2CD1C10BBF000873E21 /* kennyg.png */; };
-		C33B2A821C10D55300A3EF32 /* MotionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33B2A811C10D55300A3EF32 /* MotionHandler.swift */; };
+		8491D2D01C10C60700873E21 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491D2CF1C10C60700873E21 /* Session.swift */; };
+		84BA56271C10D6BE008110C7 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BA56261C10D6BE008110C7 /* Util.swift */; };
+		C33B2A841C10EE3200A3EF32 /* MotionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33B2A831C10EE3200A3EF32 /* MotionHandler.swift */; };
+		D5C1A820B85910A281EF4359 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC13F5736EF88143725520A /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +44,12 @@
 		3FB1896419D1F403002810E3 /* NerdCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdCamTests.swift; sourceTree = "<group>"; };
 		8491D2CB1C10ACD200873E21 /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hat.png; sourceTree = "<group>"; };
 		8491D2CD1C10BBF000873E21 /* kennyg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kennyg.png; sourceTree = "<group>"; };
-		C33B2A811C10D55300A3EF32 /* MotionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionHandler.swift; sourceTree = "<group>"; };
+		8491D2CF1C10C60700873E21 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		84BA56261C10D6BE008110C7 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		8CF300E5C221E47527CD85F6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9EC13F5736EF88143725520A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C33B2A831C10EE3200A3EF32 /* MotionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionHandler.swift; sourceTree = "<group>"; };
+		D2AE228CCC36C12BCE241C6F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5C1A820B85910A281EF4359 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +77,8 @@
 				3FB1894B19D1F403002810E3 /* NerdCam */,
 				3FB1896119D1F403002810E3 /* NerdCamTests */,
 				3FB1894A19D1F403002810E3 /* Products */,
+				E5B1885685BA41892890C7D0 /* Pods */,
+				A9EDFD5EE0C5629B080F51EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,8 +97,10 @@
 				8491D2CB1C10ACD200873E21 /* hat.png */,
 				8491D2CD1C10BBF000873E21 /* kennyg.png */,
 				3FB1894E19D1F403002810E3 /* AppDelegate.swift */,
+				8491D2CF1C10C60700873E21 /* Session.swift */,
+				84BA56261C10D6BE008110C7 /* Util.swift */,
 				3FB1895019D1F403002810E3 /* ViewController.swift */,
-				C33B2A811C10D55300A3EF32 /* MotionHandler.swift */,
+				C33B2A831C10EE3200A3EF32 /* MotionHandler.swift */,
 				3FB1895219D1F403002810E3 /* Main.storyboard */,
 				3FB1895519D1F403002810E3 /* Images.xcassets */,
 				3FB1895719D1F403002810E3 /* LaunchScreen.xib */,
@@ -121,6 +134,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A9EDFD5EE0C5629B080F51EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EC13F5736EF88143725520A /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5B1885685BA41892890C7D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8CF300E5C221E47527CD85F6 /* Pods.debug.xcconfig */,
+				D2AE228CCC36C12BCE241C6F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FB1896819D1F403002810E3 /* Build configuration list for PBXNativeTarget "NerdCam" */;
 			buildPhases = (
+				2ED0EE9EAA430F90DA74CECF /* Check Pods Manifest.lock */,
 				3FB1894519D1F403002810E3 /* Sources */,
 				3FB1894619D1F403002810E3 /* Frameworks */,
 				3FB1894719D1F403002810E3 /* Resources */,
+				AC7D92AD8343EACAAC835FAB /* Embed Pods Frameworks */,
+				8CE7239E510E2EB1A22C7C21 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,7 +204,6 @@
 				TargetAttributes = {
 					3FB1894819D1F403002810E3 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = AE76EV48ND;
 					};
 					3FB1895D19D1F403002810E3 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -220,14 +252,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2ED0EE9EAA430F90DA74CECF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8CE7239E510E2EB1A22C7C21 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC7D92AD8343EACAAC835FAB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3FB1894519D1F403002810E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C33B2A821C10D55300A3EF32 /* MotionHandler.swift in Sources */,
 				3FB1895119D1F403002810E3 /* ViewController.swift in Sources */,
 				3FB1894F19D1F403002810E3 /* AppDelegate.swift in Sources */,
+				8491D2D01C10C60700873E21 /* Session.swift in Sources */,
+				C33B2A841C10EE3200A3EF32 /* MotionHandler.swift in Sources */,
+				84BA56271C10D6BE008110C7 /* Util.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,29 +431,27 @@
 		};
 		3FB1896919D1F403002810E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CF300E5C221E47527CD85F6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NerdCam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bignerdranch.advios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		3FB1896A19D1F403002810E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2AE228CCC36C12BCE241C6F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NerdCam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bignerdranch.advios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
