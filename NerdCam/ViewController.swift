@@ -1,84 +1,50 @@
 import AVFoundation
 import UIKit
 
-
-
 class ViewController: UIViewController {
-
-    var captureSession: AVCaptureSession!
+    var captureSession: AVCaptureSession?
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var hatLayer: CALayer = {
-        let hat = CALayer()
-        hat.contents = UIImage(named: "kennyg.png")!.CGImage
-        hat.contentsGravity = kCAGravityResizeAspect
-        return hat
+    var kennyLayer: CALayer = {
+        let kenny = CALayer()
+        kenny.contents = UIImage(named: "kennyg.png")!.CGImage
+        kenny.contentsGravity = kCAGravityResizeAspect
+        return kenny
     }()
-
-    func newVideoCaptureSession() -> AVCaptureSession? {
-        let videoCamera = AVCaptureDevice
-            .defaultDeviceWithMediaType(AVMediaTypeVideo)
-
-        let videoInput: AVCaptureDeviceInput?
-        do {
-            videoInput = try AVCaptureDeviceInput(device: videoCamera)
-        } catch let error as NSError {
-            print("\(__FUNCTION__): failed to init capture device" +
-                "with video camera \(videoCamera): error \(error)")
-            videoInput = nil
-        }
-
-        /* Attach the input to a capture session */
-        let captureSession = AVCaptureSession()
-        if !captureSession.canAddInput(videoInput) {
-            print("\(__FUNCTION__): cannot add input \(videoCamera)")
-            return nil
-        }
-
-        captureSession.addInput(videoInput)
-        return captureSession
-    }
 
     func addPreviewLayerForSession(session: AVCaptureSession) {
         let layer = AVCaptureVideoPreviewLayer(session: session)
         let rootLayer = self.view.layer
         layer.frame = rootLayer.bounds
+
         rootLayer.addSublayer(layer)
-        self.view.layer.addSublayer(self.hatLayer)
+        rootLayer.addSublayer(self.kennyLayer)
 
         previewLayer = layer
-    }
-
-    func addMetadataOutputToSession(session: AVCaptureSession) {
-        let metadataOutput = AVCaptureMetadataOutput()
-        if !session.canAddOutput(metadataOutput) {
-            print("\(__FUNCTION__): cannot add output \(metadataOutput)")
-            return
-        }
-
-        session.addOutput(metadataOutput)
-        let queue = dispatch_queue_create(
-            "com.bignerdranch.advios.NerdCam.MetadataOutput", DISPATCH_QUEUE_SERIAL
-        )
-        metadataOutput.setMetadataObjectsDelegate(self, queue: queue)
-        metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeFace]
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /* Crash if we can't get a capture session */
-        captureSession = newVideoCaptureSession()
-        addPreviewLayerForSession(captureSession)
-        addMetadataOutputToSession(captureSession)
+        let videoCamera = AVCaptureDevice
+            .defaultDeviceWithMediaType(AVMediaTypeVideo)
+        guard let session = Session.createCaptureSession(
+            videoCamera, delegate: self
+        ) else {
+            fatalError("Could not create AV session.")
+        }
+
+        captureSession = session
+
+        addPreviewLayerForSession(session)
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        captureSession.startRunning()
+        captureSession?.startRunning()
     }
 
     override func viewDidDisappear(animated: Bool) {
-        captureSession.stopRunning()
+        captureSession?.stopRunning()
         super.viewWillDisappear(animated)
     }
 
@@ -110,7 +76,7 @@ extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
         fromConnection connection: AVCaptureConnection!
     ) {
         guard let face = metadataObjects.first as? AVMetadataObject else {
-            hatLayer.hidden = true
+            kennyLayer.hidden = true
             return
         }
 
@@ -119,8 +85,8 @@ extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
         let scaledFaceRect = CGRectInset(faceRect, -30, -30)
 
         dispatch_async(dispatch_get_main_queue()) {
-            self.hatLayer.hidden = false
-            self.hatLayer.frame = scaledFaceRect
+            self.kennyLayer.hidden = false
+            self.kennyLayer.frame = scaledFaceRect
         }
     }
 }
