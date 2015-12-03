@@ -23,6 +23,10 @@ class MotionHandler: NSObject  {
     init(delegate: MotionHandlerDelegate) {
         super.init()
         self.delegate = delegate
+        self.startMotionUpdates()
+    }
+    
+    func startMotionUpdates() {
         if CMPedometer.isStepCountingAvailable() {
             pedoMeter.startPedometerUpdatesFromDate(NSDate(), withHandler: { data, error in
                 if data != nil {
@@ -30,5 +34,6 @@ class MotionHandler: NSObject  {
                 }
             })
         }
+
     }
 }
