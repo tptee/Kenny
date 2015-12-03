@@ -1,13 +1,23 @@
 import AVFoundation
 import UIKit
+import Cartography
 
 class ViewController: UIViewController {
-    var captureSession: AVCaptureSession?
-    var previewLayer: AVCaptureVideoPreviewLayer!
     let kennyLayer = CALayer(
         contents: UIImage(named: "kennyg.png")!.CGImage,
         contentsGravity: kCAGravityResizeAspect
     )
+    let warningLabel = UILabel(
+        frame: CGRectZero,
+        text: "🎷 Ermahgerd run away from Kenny G! 🎷",
+        textAlignment: .Center,
+        textColor: UIColor.whiteColor(),
+        backgroundColor: UIColor.redColor()
+    )
+
+    var aWildKennyAppeared = false
+    var captureSession: AVCaptureSession?
+    var previewLayer: AVCaptureVideoPreviewLayer!
 
     func addPreviewLayerForSession(session: AVCaptureSession) {
         let layer = AVCaptureVideoPreviewLayer(session: session)
@@ -32,13 +42,49 @@ class ViewController: UIViewController {
         }
 
         captureSession = session
-
         addPreviewLayerForSession(session)
+
+        warningLabel.hidden = true
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        view.addSubview(warningLabel)
+        constrain(warningLabel, view) { label, view in
+            label.top == view.top + 20
+            label.left == view.left
+            label.right == view.right
+            label.height == 60
+        }
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         captureSession?.startRunning()
+
+        UIView.animateKeyframesWithDuration(
+            2.0,
+            delay: 0,
+            options: [.Autoreverse, .Repeat],
+            animations: { [weak self] in
+                UIView.addKeyframeWithRelativeStartTime(
+                    0.0,
+                    relativeDuration: 0.5,
+                    animations: { [weak self] in
+                        self?.warningLabel.alpha = 0.0
+                    }
+                )
+                UIView.addKeyframeWithRelativeStartTime(
+                    0.5,
+                    relativeDuration: 0.5,
+                    animations: { [weak self] in
+                        self?.warningLabel.alpha = 1.0
+                    }
+                )
+            },
+            completion: nil
+        )
     }
 
     override func viewDidDisappear(animated: Bool) {
@@ -73,18 +119,20 @@ extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
         didOutputMetadataObjects metadataObjects: [AnyObject]!,
         fromConnection connection: AVCaptureConnection!
     ) {
-        guard let face = metadataObjects.first as? AVMetadataObject else {
+        guard let face = metadataObjects.first as? AVMetadataFaceObject else {
             kennyLayer.hidden = true
             return
         }
+        aWildKennyAppeared = true // gross state 💩
 
         let faceRect = self.previewLayer
             .rectForMetadataOutputRectOfInterest(face.bounds)
         let scaledFaceRect = CGRectInset(faceRect, -30, -30)
 
-        dispatch_async(dispatch_get_main_queue()) {
-            self.kennyLayer.hidden = false
-            self.kennyLayer.frame = scaledFaceRect
+        dispatch_async(dispatch_get_main_queue()) { [weak self] in
+            self?.warningLabel.hidden = false
+            self?.kennyLayer.hidden = false
+            self?.kennyLayer.frame = scaledFaceRect
         }
     }
 }
