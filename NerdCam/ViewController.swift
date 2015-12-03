@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         backgroundColor: UIColor.redColor()
     )
 
-    var aWildKennyAppeared = false
+    var 🎷 = false
     var captureSession: AVCaptureSession?
     var previewLayer: AVCaptureVideoPreviewLayer!
 
@@ -120,10 +120,9 @@ extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
         fromConnection connection: AVCaptureConnection!
     ) {
         guard let face = metadataObjects.first as? AVMetadataFaceObject else {
-            kennyLayer.hidden = true
             return
         }
-        aWildKennyAppeared = true // gross state 💩
+        🎷 = true // gross state 💩
 
         let faceRect = self.previewLayer
             .rectForMetadataOutputRectOfInterest(face.bounds)

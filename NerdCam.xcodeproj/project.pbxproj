@@ -13,6 +13,8 @@
 		3FB1895619D1F403002810E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB1895519D1F403002810E3 /* Images.xcassets */; };
 		3FB1895919D1F403002810E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FB1895719D1F403002810E3 /* LaunchScreen.xib */; };
 		3FB1896519D1F403002810E3 /* NerdCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1896419D1F403002810E3 /* NerdCamTests.swift */; };
+		844AF3B21C10EA2200CB12DE /* KennyHat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844AF3B01C10EA2200CB12DE /* KennyHat.swift */; };
+		844AF3B31C10EA2200CB12DE /* KennyHatEyes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844AF3B11C10EA2200CB12DE /* KennyHatEyes.swift */; };
 		8491D2CC1C10ACD200873E21 /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 8491D2CB1C10ACD200873E21 /* hat.png */; };
 		8491D2CE1C10BBF000873E21 /* kennyg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8491D2CD1C10BBF000873E21 /* kennyg.png */; };
 		8491D2D01C10C60700873E21 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491D2CF1C10C60700873E21 /* Session.swift */; };
@@ -41,6 +43,8 @@
 		3FB1895E19D1F403002810E3 /* NerdCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NerdCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB1896319D1F403002810E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FB1896419D1F403002810E3 /* NerdCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdCamTests.swift; sourceTree = "<group>"; };
+		844AF3B01C10EA2200CB12DE /* KennyHat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KennyHat.swift; sourceTree = "<group>"; };
+		844AF3B11C10EA2200CB12DE /* KennyHatEyes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KennyHatEyes.swift; sourceTree = "<group>"; };
 		8491D2CB1C10ACD200873E21 /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hat.png; sourceTree = "<group>"; };
 		8491D2CD1C10BBF000873E21 /* kennyg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kennyg.png; sourceTree = "<group>"; };
 		8491D2CF1C10C60700873E21 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				8491D2CB1C10ACD200873E21 /* hat.png */,
 				8491D2CD1C10BBF000873E21 /* kennyg.png */,
 				3FB1894E19D1F403002810E3 /* AppDelegate.swift */,
+				844AF3B01C10EA2200CB12DE /* KennyHat.swift */,
+				844AF3B11C10EA2200CB12DE /* KennyHatEyes.swift */,
 				8491D2CF1C10C60700873E21 /* Session.swift */,
 				84BA56261C10D6BE008110C7 /* Util.swift */,
 				3FB1895019D1F403002810E3 /* ViewController.swift */,
@@ -302,8 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844AF3B21C10EA2200CB12DE /* KennyHat.swift in Sources */,
 				3FB1895119D1F403002810E3 /* ViewController.swift in Sources */,
 				3FB1894F19D1F403002810E3 /* AppDelegate.swift in Sources */,
+				844AF3B31C10EA2200CB12DE /* KennyHatEyes.swift in Sources */,
 				8491D2D01C10C60700873E21 /* Session.swift in Sources */,
 				84BA56271C10D6BE008110C7 /* Util.swift in Sources */,
 			);

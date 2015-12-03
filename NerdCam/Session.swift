@@ -29,7 +29,8 @@ struct Session {
 
         session.addOutput(metadataOutput)
         let queue = dispatch_queue_create(
-            "com.bignerdranch.advios.NerdCam.MetadataOutput", DISPATCH_QUEUE_SERIAL
+            "com.bignerdranch.kennyg.MetadataOutput",
+            DISPATCH_QUEUE_SERIAL
         )
         metadataOutput.setMetadataObjectsDelegate(delegate, queue: queue)
         metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeFace]
