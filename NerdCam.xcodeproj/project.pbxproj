@@ -15,6 +15,7 @@
 		3FB1896519D1F403002810E3 /* NerdCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB1896419D1F403002810E3 /* NerdCamTests.swift */; };
 		8491D2CC1C10ACD200873E21 /* hat.png in Resources */ = {isa = PBXBuildFile; fileRef = 8491D2CB1C10ACD200873E21 /* hat.png */; };
 		8491D2CE1C10BBF000873E21 /* kennyg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8491D2CD1C10BBF000873E21 /* kennyg.png */; };
+		C33B2A821C10D55300A3EF32 /* MotionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33B2A811C10D55300A3EF32 /* MotionHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		3FB1896419D1F403002810E3 /* NerdCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NerdCamTests.swift; sourceTree = "<group>"; };
 		8491D2CB1C10ACD200873E21 /* hat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hat.png; sourceTree = "<group>"; };
 		8491D2CD1C10BBF000873E21 /* kennyg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kennyg.png; sourceTree = "<group>"; };
+		C33B2A811C10D55300A3EF32 /* MotionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				8491D2CD1C10BBF000873E21 /* kennyg.png */,
 				3FB1894E19D1F403002810E3 /* AppDelegate.swift */,
 				3FB1895019D1F403002810E3 /* ViewController.swift */,
+				C33B2A811C10D55300A3EF32 /* MotionHandler.swift */,
 				3FB1895219D1F403002810E3 /* Main.storyboard */,
 				3FB1895519D1F403002810E3 /* Images.xcassets */,
 				3FB1895719D1F403002810E3 /* LaunchScreen.xib */,
@@ -168,6 +171,7 @@
 				TargetAttributes = {
 					3FB1894819D1F403002810E3 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = AE76EV48ND;
 					};
 					3FB1895D19D1F403002810E3 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -221,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C33B2A821C10D55300A3EF32 /* MotionHandler.swift in Sources */,
 				3FB1895119D1F403002810E3 /* ViewController.swift in Sources */,
 				3FB1894F19D1F403002810E3 /* AppDelegate.swift in Sources */,
 			);
@@ -346,10 +351,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NerdCam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bignerdranch.advios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -357,10 +365,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NerdCam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bignerdranch.advios.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -3,7 +3,7 @@ import UIKit
 
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MotionHandlerDelegate {
 
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
@@ -13,7 +13,9 @@ class ViewController: UIViewController {
         hat.contentsGravity = kCAGravityResizeAspect
         return hat
     }()
-
+    
+    var motionData: MotionHandler?
+    
     func newVideoCaptureSession() -> AVCaptureSession? {
         let videoCamera = AVCaptureDevice
             .defaultDeviceWithMediaType(AVMediaTypeVideo)
@@ -62,6 +64,12 @@ class ViewController: UIViewController {
         metadataOutput.setMetadataObjectsDelegate(self, queue: queue)
         metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeFace]
     }
+    
+    func didReceiveSteps(numberOfSteps: Int) {
+        print("Walking!")
+        print(numberOfSteps)
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +78,11 @@ class ViewController: UIViewController {
         captureSession = newVideoCaptureSession()
         addPreviewLayerForSession(captureSession)
         addMetadataOutputToSession(captureSession)
+        
+        self.motionData = MotionHandler(delegate: self)
     }
+    
+    
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
