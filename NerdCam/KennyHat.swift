@@ -12,7 +12,7 @@
 
 import UIKit
 
-public class NerdCam : NSObject {
+public class KennyHat : NSObject {
 
     //// Cache
 
@@ -176,7 +176,7 @@ public class NerdCam : NSObject {
 
     public class func imageOfEyeRight(variableColor variableColor: UIColor = UIColor(red: 0.295, green: 0.569, blue: 0.547, alpha: 1.000), ourRect: CGRect = CGRectMake(0, 0, 52, 38)) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(52, 38), false, 0)
-            NerdCam.drawEyeRight(variableColor: variableColor, ourRect: ourRect)
+            KennyHat.drawEyeRight(variableColor: variableColor, ourRect: ourRect)
 
         let imageOfEyeRight = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

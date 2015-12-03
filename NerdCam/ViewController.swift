@@ -27,7 +27,6 @@ class ViewController: UIViewController, MotionHandlerDelegate {
         layer.frame = rootLayer.bounds
 
         rootLayer.addSublayer(layer)
-        rootLayer.addSublayer(self.kennyLayer)
 
         previewLayer = layer
     }
@@ -45,18 +44,29 @@ class ViewController: UIViewController, MotionHandlerDelegate {
 
         captureSession = session
         addPreviewLayerForSession(session)
+        kennyLayer.addSublayer(CALayer(
+            contents: KennyHat.imageOfEyeRight().CGImage,
+            contentsGravity: kCAGravityResizeAspect
+        ))
+        view.layer.addSublayer(kennyLayer)
 
         warningLabel.hidden = true
     }
     
     func didReceiveSteps(numberOfSteps: Int) {
-        if numberOfSteps >= 100 {
-            🎷 = false
-            pedoMeter.stopPedometerUpdates()
-            return
+        dispatch_async(dispatch_get_main_queue()) { [weak self] in
+            if numberOfSteps >= 100 {
+                self?.🎷 = false
+                self?.kennyLayer.hidden = true
+                self?.warningLabel.hidden = true
+                self?.kennyLayer.opacity = 1.0
+                pedoMeter.stopPedometerUpdates()
+                return
+            }
+            self?.kennyLayer.opacity = 1.0 - (Float(numberOfSteps) / 100.0)
+
+            print(self?.kennyLayer.opacity)
         }
-        kennyLayer.opacity = 1.0 - (Float(numberOfSteps) / 100.0)
-        print(numberOfSteps)
     }
 
 
@@ -144,7 +154,7 @@ extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
         let scaledFaceRect = CGRectInset(faceRect, -30, -30)
 
         dispatch_async(dispatch_get_main_queue()) { [weak self] in
-            // TODO start updates
+            self?.motionData?.startMotionUpdates()
             self?.warningLabel.hidden = false
             self?.kennyLayer.hidden = false
             self?.kennyLayer.frame = scaledFaceRect

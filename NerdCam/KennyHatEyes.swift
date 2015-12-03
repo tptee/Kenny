@@ -1,5 +1,5 @@
 //
-//  NerdCamEyes.swift
+//  KennyHatEyes.swift
 //  EmojiSportsTracker
 //
 //  Created by Michael Wintsch on 03/12/2015.
@@ -9,7 +9,7 @@
 import UIKit
 
 
-class NerdCamEyes: UIView {
+class KennyHatEyes: UIView {
     
     public var eyeColor : Bool = false
     
@@ -35,13 +35,13 @@ class NerdCamEyes: UIView {
             {
                 // false = Left
                 
-                NerdCam.drawEyeLeft(variableColor: NerdCam.fillColorGreen, ourRect: rect)
+                KennyHat.drawEyeLeft(variableColor: KennyHat.fillColorGreen, ourRect: rect)
                 
             }
             else
             {
                 
-                NerdCam.drawEyeRight(variableColor: NerdCam.fillColorGreen, ourRect: rect)
+                KennyHat.drawEyeRight(variableColor: KennyHat.fillColorGreen, ourRect: rect)
                 
             }
             
@@ -58,13 +58,13 @@ class NerdCamEyes: UIView {
                 
                 // false = left
                 
-                NerdCam.drawEyeLeft(variableColor: NerdCam.fillRedColor, ourRect: rect)
+                KennyHat.drawEyeLeft(variableColor: KennyHat.fillRedColor, ourRect: rect)
                 
             }
             else
             {
                 
-                NerdCam.drawEyeRight(variableColor: NerdCam.fillRedColor, ourRect: rect)
+                KennyHat.drawEyeRight(variableColor: KennyHat.fillRedColor, ourRect: rect)
                 
             }
             
