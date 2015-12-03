@@ -1,32 +1,22 @@
-//
-//  ViewController.swift
-//  NerdCam
-//
-//  Created by Jeremy on 2014-09-23.
-//  Copyright (c) 2014 Big Nerd Ranch. All rights reserved.
-//
-
 import AVFoundation
 import UIKit
 
-extension ViewController: AVCaptureMetadataOutputObjectsDelegate {}
+
 
 class ViewController: UIViewController {
 
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var hatImage = UIImage(named: "hat.png")!.CGImage
     var hatLayer: CALayer = {
         let hat = CALayer()
         hat.contents = UIImage(named: "kennyg.png")!.CGImage
         hat.contentsGravity = kCAGravityResizeAspect
-//        hat.transform = CATransform3DMakeScale(2.5, 2.5, 1);
         return hat
     }()
 
     func newVideoCaptureSession() -> AVCaptureSession? {
-        /* Set up a capture input for the default video camera */
-        let videoCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        let videoCamera = AVCaptureDevice
+            .defaultDeviceWithMediaType(AVMediaTypeVideo)
 
         let videoInput: AVCaptureDeviceInput?
         do {
@@ -73,22 +63,6 @@ class ViewController: UIViewController {
         metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeFace]
     }
 
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-        guard let face = metadataObjects.first as? AVMetadataObject else {
-            hatLayer.hidden = true
-            return
-        }
-
-        let faceRect = self.previewLayer
-            .rectForMetadataOutputRectOfInterest(face.bounds)
-        let scaledFaceRect = CGRectInset(faceRect, -30, -30)
-
-        dispatch_async(dispatch_get_main_queue()) {
-            self.hatLayer.hidden = false
-            self.hatLayer.frame = scaledFaceRect
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -118,13 +92,35 @@ class ViewController: UIViewController {
     {
         previewLayer.frame = CGRect(origin: CGPointZero, size: size)
         let currentOrientation = UIDevice.currentDevice().orientation
-        let videoOrientation = AVCaptureVideoOrientation(rawValue: currentOrientation.rawValue)!
+        let videoOrientation = AVCaptureVideoOrientation(
+            rawValue: currentOrientation.rawValue
+        )!
         previewLayer.connection.videoOrientation = videoOrientation
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+}
 
+extension ViewController: AVCaptureMetadataOutputObjectsDelegate {
+    func captureOutput(
+        captureOutput: AVCaptureOutput!,
+        didOutputMetadataObjects metadataObjects: [AnyObject]!,
+        fromConnection connection: AVCaptureConnection!
+    ) {
+        guard let face = metadataObjects.first as? AVMetadataObject else {
+            hatLayer.hidden = true
+            return
+        }
+
+        let faceRect = self.previewLayer
+            .rectForMetadataOutputRectOfInterest(face.bounds)
+        let scaledFaceRect = CGRectInset(faceRect, -30, -30)
+
+        dispatch_async(dispatch_get_main_queue()) {
+            self.hatLayer.hidden = false
+            self.hatLayer.frame = scaledFaceRect
+        }
+    }
 }
